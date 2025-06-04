@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import { ThemeToggle } from '../ToggleTheme';
+import Link from 'next/link';
 
 export function Header() {
   return (
@@ -12,7 +13,7 @@ export function Header() {
           'lg:text-7xl/normal'
         )}
       >
-        <a href='#'>The blog</a>
+        <Link href='#'>The blog</Link>
       </h1>
       <ThemeToggle />
     </header>
