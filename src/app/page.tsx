@@ -1,7 +1,4 @@
-import { Container } from '@/components/Container';
-import { PostList } from '@/components/PostList/inde';
-import { SpinLoader } from '@/components/SpinLoader';
-import ThemeToggle from '@/components/ToggleTheme/ToggleTheme';
+import { Container, PostList, SpinLoader, ThemeToggle } from '@/components';
 import { Suspense } from 'react';
 
 export default async function HomePage() {

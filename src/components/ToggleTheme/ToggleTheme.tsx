@@ -4,7 +4,7 @@ import { useTheme } from '@/store/ThemeContext/ThemeContext';
 import clsx from 'clsx';
 import { Moon, Sun } from 'lucide-react';
 
-export default function ThemeToggle() {
+export function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
 
   return (
