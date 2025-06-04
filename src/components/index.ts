@@ -2,3 +2,4 @@ export * from './Container';
 export * from './PostList';
 export * from './SpinLoader';
 export * from './ToggleTheme';
+export * from './Header';
