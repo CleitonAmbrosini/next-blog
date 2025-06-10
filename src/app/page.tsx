@@ -1,4 +1,10 @@
-import { Container, Header, PostList, SpinLoader } from '@/components';
+import {
+  Container,
+  Header,
+  PostHeading,
+  PostList,
+  SpinLoader,
+} from '@/components';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Suspense } from 'react';
@@ -27,9 +33,7 @@ export default async function HomePage() {
             20/05/2025 10:00
           </time>
 
-          <h1 className='text-2xl/tight font-extrabold sm:text-4xl/tight'>
-            <Link href=''>Titulo</Link>
-          </h1>
+          <PostHeading url='#'>Título do post</PostHeading>
 
           <p>content</p>
         </div>
