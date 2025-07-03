@@ -32,6 +32,7 @@ export function PostImage({ linkProps, imageProps }: PostImageProps) {
           imageProps.className,
         )}
         alt={imageProps.alt}
+        src={imageProps.src}
       />
     </Link>
   );
