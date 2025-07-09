@@ -1,5 +1,5 @@
-import { PostHeading } from '../PostHeading';
 import { PostImage } from '../PostImage';
+import { PostSummary } from '../PostSummary';
 
 export function PostFeatured() {
   const slug = 'qualquer';
@@ -20,18 +20,13 @@ export function PostFeatured() {
         }}
       />
 
-      <div className='flex flex-col gap-4 sm:justify-center'>
-        <time
-          dateTime='2025-05-20'
-          className='dark:text-slate-500 text-slate-600 text-sm/tight block'
-        >
-          20/05/2025 10:00
-        </time>
-
-        <PostHeading url={postLink}>Título do post</PostHeading>
-
-        <p>content</p>
-      </div>
+      <PostSummary
+        postLink={postLink}
+        postHeading='h1'
+        createdAt='2025-04-08T00:24:38.616Z'
+        excerpt='Em vez de configurar tudo manualmente, basta criar um arquivo com o nome certo e o Next.js entende que aquilo representa uma página.'
+        title='Dicas para manter a saúde mental em dia'
+      />
     </section>
   );
 }

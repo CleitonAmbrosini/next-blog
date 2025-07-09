@@ -6,3 +6,4 @@ export * from './PostImage';
 export * from './PostList';
 export * from './SpinLoader';
 export * from './ToggleTheme';
+export * from './PostSummary';
