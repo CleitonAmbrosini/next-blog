@@ -1,4 +1,4 @@
-import { formatDateTime, formatDistanceToNow } from '@/utils/fomat-datetime';
+import { PostDate } from '../PostDate';
 import { PostHeading } from '../PostHeading';
 
 type PostSummaryProps = {
@@ -6,19 +6,19 @@ type PostSummaryProps = {
   postLink: string;
   createdAt: string;
   title: string;
-  excerpt: string
+  excerpt: string;
 };
 
-export function PostSummary({ postHeading, postLink, createdAt, title, excerpt }: PostSummaryProps) {
+export function PostSummary({
+  postHeading,
+  postLink,
+  createdAt,
+  title,
+  excerpt,
+}: PostSummaryProps) {
   return (
     <div className='flex flex-col gap-4 sm:justify-center'>
-      <time
-        dateTime={createdAt}
-        className='dark:text-slate-500 text-slate-600 text-sm/tight block'
-        title={formatDistanceToNow(createdAt)}
-      >
-        {formatDateTime(createdAt)}
-      </time>
+      <PostDate dateTime={createdAt} />
 
       <PostHeading as={postHeading} url={postLink}>
         {title}
