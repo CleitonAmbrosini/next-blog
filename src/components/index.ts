@@ -10,3 +10,4 @@ export * from './PostSummary';
 export * from './SinglePost';
 export * from './SpinLoader';
 export * from './ToggleTheme';
+export * from './SafeMarkdown';
