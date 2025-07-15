@@ -1,4 +1,5 @@
 export * from './Container';
+export * from './ErrorMessage';
 export * from './Footer';
 export * from './Header';
 export * from './PostDate';
@@ -7,7 +8,7 @@ export * from './PostHeading';
 export * from './PostImage';
 export * from './PostList';
 export * from './PostSummary';
+export * from './SafeMarkdown';
 export * from './SinglePost';
 export * from './SpinLoader';
 export * from './ToggleTheme';
-export * from './SafeMarkdown';
