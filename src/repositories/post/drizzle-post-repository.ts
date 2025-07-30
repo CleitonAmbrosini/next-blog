@@ -16,7 +16,11 @@ export class DrizzlePostRepository implements PostRepository {
     });
   }
 
-  async findAll(): Promise<PostModel[]> {}
+  async findAll(): Promise<PostModel[]> {
+    return await db.query.postsTable.findMany({
+      orderBy: (posts, { desc }) => desc(posts.createdAt),
+    });
+  }
 
   async findById(id: string): Promise<PostModel> {}
 }
@@ -24,9 +28,7 @@ export class DrizzlePostRepository implements PostRepository {
 (async () => {
   const repo = new DrizzlePostRepository();
 
-  const data = await repo.findBySlugPublic(
-    '10-habitos-para-aumentar-sua-produtividade',
-  );
+  const data = await repo.findAll();
 
   console.log(data);
 })();
