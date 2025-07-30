@@ -30,5 +30,5 @@ export async function seedPosts() {
     }
   }
 
-  console.log(`✅ Inseridos ${items.length} posts`);
+  console.log(`✅ ${items.length} posts were inserted!`);
 }
