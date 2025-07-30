@@ -22,13 +22,9 @@ export class DrizzlePostRepository implements PostRepository {
     });
   }
 
-  async findById(id: string): Promise<PostModel> {}
+  async findById(id: string): Promise<PostModel | undefined> {
+    return await db.query.postsTable.findFirst({
+      where: (posts, { eq }) => eq(posts.id, id),
+    });
+  }
 }
-
-(async () => {
-  const repo = new DrizzlePostRepository();
-
-  const data = await repo.findAll();
-
-  console.log(data);
-})();
