@@ -1,4 +1,6 @@
-import { Container, Footer, Header } from '@/components';
+import { Container } from '@/components/Container';
+import { Footer } from '@/components/Footer';
+import { Header } from '@/components/Header';
 import { ThemeProvider } from '@/store/ThemeContext/ThemeContext';
 import type { Metadata } from 'next';
 import './globals.css';

@@ -1,4 +1,4 @@
-import { SpinLoader } from '@/components';
+import { SpinLoader } from '@/components/SpinLoader';
 import { SinglePost } from '@/components/SinglePost';
 import { findPostBySlugCached } from '@/lib/post/queries';
 import type { Metadata } from 'next';
