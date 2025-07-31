@@ -10,10 +10,15 @@ export class DrizzlePostRepository implements PostRepository {
     });
   }
 
-  async findBySlugPublic(slug: string): Promise<PostModel | undefined> {
-    return await db.query.postsTable.findFirst({
-      where: (posts, { eq }) => eq(posts.slug, slug),
+  async findBySlugPublic(slug: string): Promise<PostModel> {
+    const post = await db.query.postsTable.findFirst({
+      where: (posts, { eq, and }) =>
+        and(eq(posts.slug, slug), eq(posts.published, true)),
     });
+
+    if (!post) throw new Error('No post found with this Slug.');
+
+    return post;
   }
 
   async findAll(): Promise<PostModel[]> {
@@ -22,9 +27,13 @@ export class DrizzlePostRepository implements PostRepository {
     });
   }
 
-  async findById(id: string): Promise<PostModel | undefined> {
-    return await db.query.postsTable.findFirst({
+  async findById(id: string): Promise<PostModel> {
+    const post = await db.query.postsTable.findFirst({
       where: (posts, { eq }) => eq(posts.id, id),
     });
+
+    if (!post) throw new Error('No post found with this ID.');
+
+    return post;
   }
 }
