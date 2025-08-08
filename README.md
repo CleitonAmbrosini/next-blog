@@ -1,4 +1,7 @@
-# ![Logo](./public/logo.png)
+<div align="center">
+  <img src="./public/logo.png" width="250">
+  <hr>
+</div>
 
 # Next Blog
 
