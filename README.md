@@ -10,7 +10,7 @@ development technologies, particularly Next.js and Tailwind CSS. Throughout the
 development process, several advanced concepts were explored, with a strong
 focus on performance, code structure, and best practices.
 
-Key Technologies and Concepts Covered Styling with Tailwind CSS
+- Key Technologies and Concepts Covered Styling with Tailwind CSS
 
 - Server-Side Rendering (SSR) vs Client-Side Rendering (CSR)
 
@@ -55,3 +55,50 @@ Key Technologies and Concepts Covered Styling with Tailwind CSS
 To view the statically generated version of the blog, you can access the
 deployed version at:
 [blog-ssg-nextjs](https://github.com/CleitonAmbrosini/blog-ssg-nextjs)
+
+### Local develop mode
+
+1. Install [Node.js](https://nodejs.org/) and [pnpm](https://pnpm.io/pt/)
+2. Install dependencies:
+   ```bash
+   pnpm install
+   ```
+3. Start the development server:
+   ```bash
+   pnpm dev
+   ```
+4. Open your browser at: http://localhost:3000
+
+### Local production mode
+
+1. Install [Node.js](https://nodejs.org/) and [pnpm](https://pnpm.io/pt/)
+2. Install dependencies:
+   ```bash
+   pnpm install
+   ```
+3. Build the app:
+   ```bash
+   pnpm build
+   ```
+4. Run the aplication:
+   ```bash
+   pnpm start
+   ```
+
+## 📌 Credits
+
+<div align="center">
+
+<img src="https://github.com/user-attachments/assets/56593d3b-c56f-46c5-b01d-1929471d2f25" width="150" />
+
+### Cleiton A. Ambrosini
+
+_Software Engineer – Full Stack Developer_
+
+Enjoyed the project? \\
+I'm always open to new connections and idea exchanges. \\
+Feel free to reach out to me on
+[LinkedIn](https://www.linkedin.com/in/cleitonambrosini/) or via email at:
+cleiton.ambro@gmail.com
+
+</div>
