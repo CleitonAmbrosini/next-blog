@@ -85,18 +85,17 @@ deployed version at:
    pnpm start
    ```
 
-## 📌 Credits
+## Credits
 
 <div align="center">
 
-<img src="https://github.com/user-attachments/assets/56593d3b-c56f-46c5-b01d-1929471d2f25" width="150" />
+<img src="https://github.com/user-attachments/assets/68846091-478e-4ec2-85e5-92f6d1b27230" width="150" style="border-radius: 50%;" />
 
-### Cleiton A. Ambrosini
+**Cleiton A. Ambrosini**  
+*Software Engineer – Full Stack Developer*
 
-_Software Engineer – Full Stack Developer_
-
-Enjoyed the project? \\
-I'm always open to new connections and idea exchanges. \\
+Enjoyed the project? <br>
+I'm always open to new connections and idea exchanges. <br>
 Feel free to reach out to me on
 [LinkedIn](https://www.linkedin.com/in/cleitonambrosini/) or via email at:
 cleiton.ambro@gmail.com
