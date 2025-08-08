@@ -44,3 +44,11 @@ Key Technologies and Concepts Covered Styling with Tailwind CSS
 - Displays a list of all published blog posts
 - Highlight of the most recent post at the top of the page
 - Allows viewing individual blog posts in detail
+
+## How to Run
+
+### Static Site Generation (SSG)
+
+To view the statically generated version of the blog, you can access the
+deployed version at:
+[blog-ssg-nextjs](https://github.com/CleitonAmbrosini/blog-ssg-nextjs)
