@@ -96,7 +96,7 @@ deployed version at:
 
 Enjoyed the project? <br>
 I'm always open to new connections and idea exchanges. <br>
-Feel free to reach out to me on
+Feel free to reach out to me on my
 [LinkedIn](https://www.linkedin.com/in/cleitonambrosini/) or via email at:
 cleiton.ambro@gmail.com
 
