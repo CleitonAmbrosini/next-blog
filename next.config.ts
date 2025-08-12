@@ -8,6 +8,9 @@ const nextConfig: NextConfig = {
     };
     return config;
   },
+  experimental: {
+    useCache: true,
+  },
 };
 
 export default nextConfig;

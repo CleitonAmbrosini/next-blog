@@ -1,8 +1,10 @@
-import { SpinLoader } from '@/components/SpinLoader';
 import { SinglePost } from '@/components/SinglePost';
+import { SpinLoader } from '@/components/SpinLoader';
 import { findPostBySlugCached } from '@/lib/post/queries';
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
+
+export const dynamic = 'force-static';
 
 type PostSlugPageProps = {
   params: Promise<{ slug: string }>;
