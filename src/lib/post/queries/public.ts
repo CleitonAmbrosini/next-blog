@@ -1,7 +1,6 @@
 import { postRepository } from '@/repositories/post';
 import { cacheTag } from 'next/dist/server/use-cache/cache-tag';
 import { notFound } from 'next/navigation';
-import { cache } from 'react';
 
 export const findAllPublicPostsCached = async () => {
   'use cache';
@@ -9,7 +8,7 @@ export const findAllPublicPostsCached = async () => {
   return await postRepository.findAllPublic();
 };
 
-export const findPostBySlugCached = async (slug: string) => {
+export const findPublicPostBySlugCached = async (slug: string) => {
   'use cache';
   cacheTag(`posts-${slug}`);
   const post = await postRepository
@@ -18,7 +17,3 @@ export const findPostBySlugCached = async (slug: string) => {
   if (!post) notFound();
   return post;
 };
-
-export const findPostByIdCached = cache(
-  async (id: string) => await postRepository.findById(id),
-);
