@@ -40,7 +40,7 @@ focus on performance, code structure, and best practices.
 
 - Leveraging Next.js caching
 
-- ORM integration with Prisma and PostgreSQL
+- ORM integration with Drizzle and PostgreSQL
 
 ## Features
 
@@ -91,11 +91,11 @@ deployed version at:
 
 <img src="https://github.com/user-attachments/assets/68846091-478e-4ec2-85e5-92f6d1b27230" width="150" style="border-radius: 50%;" />
 
-**Cleiton A. Ambrosini**  
+**Cleiton A. Ambrosini**
 *Software Engineer – Full Stack Developer*
 
 Enjoyed the project? <br>
-I'm always open to new connections and idea exchanges. <br>
+I'm always open to new connections. <br>
 Feel free to reach out to me on my
 [LinkedIn](https://www.linkedin.com/in/cleitonambrosini/) or via email at:
 cleiton.ambro@gmail.com
