@@ -1,9 +1,19 @@
 import { findAllPublicPostsCached } from '@/lib/post/queries/public';
+import { ErrorMessage } from '../ErrorMessage';
 import { PostImage } from '../PostImage';
 import { PostSummary } from '../PostSummary';
 
 export async function PostFeatured() {
   const posts = await findAllPublicPostsCached();
+  if (posts.length <= 1) {
+    return (
+      <ErrorMessage
+        contentTitle='oops 😅'
+        content={`we haven't created any posts yet`}
+      />
+    );
+  }
+
   const featuredPost = posts[0];
 
   const postLink = `/post/${featuredPost.slug}`;
