@@ -1,11 +1,31 @@
 'use server';
 
+import { db } from '@/db/drizzle';
+import { postsTable } from '@/db/drizzle/schemas';
+import { postRepository } from '@/repositories/post';
 import { asyncDelay } from '@/utils/async-delay';
+import { eq } from 'drizzle-orm';
 
 export async function deletePostAction(id: string) {
-  console.log('aaa', id);
-
   await asyncDelay(2000);
 
-  return id;
+  if (!id || typeof id !== 'string') {
+    return {
+      error: 'Invalid data',
+    };
+  }
+
+  const post = await postRepository.findById(id).catch(() => undefined);
+
+  if (!post) {
+    return {
+      error: 'Post does not exist.',
+    };
+  }
+
+  await db.delete(postsTable).where(eq(postsTable.id, id));
+
+  return {
+    error: '',
+  };
 }
