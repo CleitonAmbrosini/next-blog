@@ -3,6 +3,14 @@
   <hr>
 </div>
 
+<p align="center">
+   <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white"/>
+   <img src="https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white"/>
+   <img src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB"/>
+   <img src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white"/>
+   <img src="https://img.shields.io/badge/postgresql-4169e1?style=for-the-badge&logo=postgresql&logoColor=white"/>
+</p>
+
 # Next Blog
 
 Next Blog is a full-stack project built to deepen knowledge in modern web
@@ -91,13 +99,10 @@ deployed version at:
 
 <img src="https://github.com/user-attachments/assets/68846091-478e-4ec2-85e5-92f6d1b27230" width="150" style="border-radius: 50%;" />
 
-**Cleiton A. Ambrosini**
-*Software Engineer – Full Stack Developer*
+**Cleiton A. Ambrosini** _Software Engineer – Full Stack Developer_
 
-Enjoyed the project? <br>
-I'm always open to new connections. <br>
-Feel free to reach out to me on my
-[LinkedIn](https://www.linkedin.com/in/cleitonambrosini/) or via email at:
-cleiton.ambro@gmail.com
+Enjoyed the project? <br> I'm always open to new connections. <br> Feel free to
+reach out to me on my [LinkedIn](https://www.linkedin.com/in/cleitonambrosini/)
+or via email at: cleiton.ambro@gmail.com
 
 </div>
