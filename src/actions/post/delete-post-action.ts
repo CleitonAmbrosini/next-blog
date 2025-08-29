@@ -26,7 +26,6 @@ export async function deletePostAction(id: string) {
 
   await db.delete(postsTable).where(eq(postsTable.id, id));
 
-
   revalidateTag('posts');
   revalidateTag(`post-${post.slug}`);
 

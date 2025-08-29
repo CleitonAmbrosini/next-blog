@@ -4,6 +4,7 @@ import { Header } from '@/components/Header';
 import { ThemeProvider } from '@/store/ThemeContext/ThemeContext';
 import type { Metadata } from 'next';
 import './globals.css';
+import { ToastifyContainer } from '@/components/ToastifyContainer';
 
 export const metadata: Metadata = {
   title: {
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
             {children}
             <Footer />
           </Container>
+          <ToastifyContainer />
         </ThemeProvider>
       </body>
     </html>
