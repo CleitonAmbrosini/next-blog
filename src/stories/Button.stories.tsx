@@ -17,5 +17,23 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     children: 'Default Button',
+    size: 'md',
+    variant: 'default',
+  },
+};
+
+export const Ghost: Story = {
+  args: {
+    children: 'Default Button',
+    size: 'md',
+    variant: 'ghost',
+  },
+};
+
+export const Danger: Story = {
+  args: {
+    children: 'Default Button',
+    size: 'md',
+    variant: 'danger',
   },
 };
