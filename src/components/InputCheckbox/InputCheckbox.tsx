@@ -14,10 +14,13 @@ export function InputCheckbox({
   const id = useId();
 
   return (
-    <div className='flex flex-col gap-2'>
+    <div className='flex items-center gap-2'>
       <input
         {...props}
-        className={clsx('', props.className)}
+        className={clsx(
+          'w-4 h-4 outline-none focus:ring-2 focus:ring-blue-500',
+          props.className,
+        )}
         id={id}
         type={type}
       />
