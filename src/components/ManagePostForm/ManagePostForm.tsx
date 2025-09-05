@@ -5,6 +5,7 @@ import { Button } from '../Button';
 import { InputCheckbox } from '../InputCheckbox';
 import { InputText } from '../InputText';
 import { MarkdownEditor } from '../MarkdownEditor';
+import { ImageUploader } from '../ImageUploader';
 
 export function ManagePostForm() {
   const [content, setContent] = useState('');
@@ -16,6 +17,8 @@ export function ManagePostForm() {
         <div>
           <InputText placeholder='Surname' />
         </div>
+
+        <ImageUploader />
 
         <InputCheckbox />
 
