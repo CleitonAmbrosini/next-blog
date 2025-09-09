@@ -1,14 +1,19 @@
 'use client';
 
+import type { PublicPost } from '@/dto/post/dto';
 import { useState } from 'react';
 import { Button } from '../Button';
 import { ImageUploader } from '../ImageUploader';
+import { InputCheckbox } from '../InputCheckbox';
 import { InputText } from '../InputText';
 import { MarkdownEditor } from '../MarkdownEditor';
-import { InputCheckbox } from '../InputCheckbox';
 
-export function ManagePostForm() {
-  const [content, setContent] = useState('');
+type ManagePostFormProps = {
+  publicPost?: PublicPost;
+};
+
+export function ManagePostForm({ publicPost }: ManagePostFormProps) {
+  const [content, setContent] = useState(publicPost?.content || '');
 
   return (
     <form action='' className='mb-16'>
@@ -18,6 +23,7 @@ export function ManagePostForm() {
           placeholder='Post title'
           name='title'
           type='text'
+          defaultValue={publicPost?.title || ''}
         />
 
         <InputText
@@ -25,6 +31,7 @@ export function ManagePostForm() {
           placeholder='Post summary'
           name='excerpt'
           type='text'
+          defaultValue={publicPost?.excerpt || ''}
         />
 
         <MarkdownEditor
@@ -42,9 +49,15 @@ export function ManagePostForm() {
           placeholder='example.com/img/url'
           name='coverImageUrl'
           type='text'
+          defaultValue={publicPost?.coverImageUrl || ''}
         />
 
-        <InputCheckbox type='checkbox' name='published' labelText='Publish post' />
+        <InputCheckbox
+          type='checkbox'
+          name='published'
+          labelText='Publish post'
+          defaultChecked={publicPost?.published}
+        />
 
         <div className='mt-4'>
           <Button type='submit' size='lg' variant='default'>
