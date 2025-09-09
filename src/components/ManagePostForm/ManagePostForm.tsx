@@ -2,10 +2,10 @@
 
 import { useState } from 'react';
 import { Button } from '../Button';
-import { InputCheckbox } from '../InputCheckbox';
+import { ImageUploader } from '../ImageUploader';
 import { InputText } from '../InputText';
 import { MarkdownEditor } from '../MarkdownEditor';
-import { ImageUploader } from '../ImageUploader';
+import { InputCheckbox } from '../InputCheckbox';
 
 export function ManagePostForm() {
   const [content, setContent] = useState('');
@@ -13,22 +13,38 @@ export function ManagePostForm() {
   return (
     <form action='' className='mb-16'>
       <div className='flex flex-col gap-6'>
-        <InputText placeholder='Name' />
-        <div>
-          <InputText placeholder='Surname' />
-        </div>
+        <InputText
+          labelText='Title'
+          placeholder='Post title'
+          name='title'
+          type='text'
+        />
 
-        <ImageUploader />
-
-        <InputCheckbox />
+        <InputText
+          labelText='Excerpt'
+          placeholder='Post summary'
+          name='excerpt'
+          type='text'
+        />
 
         <MarkdownEditor
           labelText='Content'
-          disabled={false}
-          textAreaName='content'
           value={content}
           setValue={setContent}
+          textAreaName='content'
+          disabled={false}
         />
+
+        <ImageUploader />
+
+        <InputText
+          labelText='URL Cover Image'
+          placeholder='example.com/img/url'
+          name='coverImageUrl'
+          type='text'
+        />
+
+        <InputCheckbox type='checkbox' name='published' labelText='Publish post' />
 
         <div className='mt-4'>
           <Button type='submit' size='lg' variant='default'>
