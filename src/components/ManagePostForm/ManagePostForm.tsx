@@ -1,7 +1,8 @@
 'use client';
 
-import type { PublicPost } from '@/dto/post/dto';
-import { useState } from 'react';
+import { createPostAction } from '@/actions/post/create-post-action';
+import { makePartialPublicPost, type PublicPost } from '@/dto/post/dto';
+import { useActionState, useState } from 'react';
 import { Button } from '../Button';
 import { ImageUploader } from '../ImageUploader';
 import { InputCheckbox } from '../InputCheckbox';
@@ -13,17 +14,26 @@ type ManagePostFormProps = {
 };
 
 export function ManagePostForm({ publicPost }: ManagePostFormProps) {
+  const initialState = {
+    formState: makePartialPublicPost(publicPost),
+    errors: [],
+  };
+  const [state, action, isPending] = useActionState(
+    createPostAction,
+    initialState,
+  );
+  const { formState } = state;
   const [content, setContent] = useState(publicPost?.content || '');
 
   return (
-    <form action='' className='mb-16'>
+    <form action={action} className='mb-16'>
       <div className='flex flex-col gap-6'>
         <InputText
           labelText='Title'
           placeholder='Post title'
           name='title'
           type='text'
-          defaultValue={publicPost?.title || ''}
+          defaultValue={formState.title}
         />
 
         <InputText
@@ -31,7 +41,7 @@ export function ManagePostForm({ publicPost }: ManagePostFormProps) {
           placeholder='Post summary'
           name='excerpt'
           type='text'
-          defaultValue={publicPost?.excerpt || ''}
+          defaultValue={formState.excerpt}
         />
 
         <MarkdownEditor
@@ -49,14 +59,14 @@ export function ManagePostForm({ publicPost }: ManagePostFormProps) {
           placeholder='example.com/img/url'
           name='coverImageUrl'
           type='text'
-          defaultValue={publicPost?.coverImageUrl || ''}
+          defaultValue={formState.coverImageUrl}
         />
 
         <InputCheckbox
           type='checkbox'
           name='published'
           labelText='Publish post'
-          defaultChecked={publicPost?.published}
+          defaultChecked={formState.published}
         />
 
         <div className='mt-4'>

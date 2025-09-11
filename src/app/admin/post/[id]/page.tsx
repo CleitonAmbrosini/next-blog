@@ -1,5 +1,5 @@
 import { ManagePostForm } from '@/components/ManagePostForm';
-import { makePublicPost } from '@/dto/post/dto';
+import { makePublicPostFromDb } from '@/dto/post/dto';
 import { findPostByIdAdmin } from '@/lib/post/queries/admin';
 import type { Metadata } from 'next';
 
@@ -17,7 +17,7 @@ export default async function AdminPostIdPage({ params }: AdminPostPageProps) {
   const { id } = await params;
   const post = await findPostByIdAdmin(id);
 
-  const publicPost = makePublicPost(post);
+  const publicPost = makePublicPostFromDb(post);
 
   return (
     <div className='py-16 text-6xl'>
