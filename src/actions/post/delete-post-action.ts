@@ -1,30 +1,28 @@
 'use server';
 
-import { db } from '@/db/drizzle';
-import { postsTable } from '@/db/drizzle/schemas';
 import { postRepository } from '@/repositories/post';
-import { asyncDelay } from '@/utils/async-delay';
-import { eq } from 'drizzle-orm';
 import { revalidateTag } from 'next/cache';
 
 export async function deletePostAction(id: string) {
-  await asyncDelay(2000);
-
   if (!id || typeof id !== 'string') {
     return {
       error: 'Invalid data',
     };
   }
 
-  const post = await postRepository.findById(id).catch(() => undefined);
-
-  if (!post) {
+  let post;
+  try {
+    post = await postRepository.delete(id);
+  } catch (e: unknown) {
+    if (e instanceof Error) {
+      return {
+        errors: e.message,
+      };
+    }
     return {
-      error: 'Post does not exist.',
+      errors: 'An error occurred when trying to save the post.',
     };
   }
-
-  await db.delete(postsTable).where(eq(postsTable.id, id));
 
   revalidateTag('posts');
   revalidateTag(`post-${post.slug}`);
