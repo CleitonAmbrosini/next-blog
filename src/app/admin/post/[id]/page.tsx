@@ -22,7 +22,7 @@ export default async function AdminPostIdPage({ params }: AdminPostPageProps) {
   return (
     <div className='py-16 text-6xl'>
       <h1 className='text-xl font-extrabold'>Edit post</h1>
-      <ManagePostForm publicPost={publicPost} />
+      <ManagePostForm mode='update' publicPost={publicPost} />
     </div>
   );
 }

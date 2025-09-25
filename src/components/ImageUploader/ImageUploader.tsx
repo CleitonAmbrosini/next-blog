@@ -7,7 +7,11 @@ import { useRef, useState, useTransition } from 'react';
 import { toast } from 'react-toastify';
 import { Button } from '../Button';
 
-export function ImageUploader() {
+type ImageUploaderProps = {
+  disabled: boolean;
+};
+
+export function ImageUploader({ disabled = false }: ImageUploaderProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [isUploading, startTransition] = useTransition();
   const [imgURL, setImgURL] = useState('');
@@ -72,7 +76,7 @@ export function ImageUploader() {
         variant='default'
         type='button'
         onClick={handleChooseFile}
-        disabled={isUploading}
+        disabled={isUploading || disabled}
       >
         <ImageUpIcon />
         Send an image
@@ -94,7 +98,7 @@ export function ImageUploader() {
         type='file'
         accept='image/*'
         onChange={handleChange}
-        disabled={isUploading}
+        disabled={isUploading || disabled}
       />
     </div>
   );

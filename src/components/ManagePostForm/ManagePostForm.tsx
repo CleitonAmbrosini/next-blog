@@ -1,6 +1,7 @@
 'use client';
 
 import { createPostAction } from '@/actions/post/create-post-action';
+import { updatePostAction } from '@/actions/post/update-post-action';
 import { makePartialPublicPost, type PublicPost } from '@/dto/post/dto';
 import { useActionState, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
@@ -10,19 +11,41 @@ import { InputCheckbox } from '../InputCheckbox';
 import { InputText } from '../InputText';
 import { MarkdownEditor } from '../MarkdownEditor';
 
-type ManagePostFormProps = {
-  publicPost?: PublicPost;
+type ManagePostFormUpdateProps = {
+  mode: 'update';
+  publicPost: PublicPost;
 };
 
-export function ManagePostForm({ publicPost }: ManagePostFormProps) {
+type ManagePostFormCreateProps = {
+  mode: 'create';
+};
+
+type ManagePostFormProps =
+  | ManagePostFormUpdateProps
+  | ManagePostFormCreateProps;
+
+export function ManagePostForm(props: ManagePostFormProps) {
+  const { mode } = props;
+
+  let publicPost;
+  if (mode === 'update') {
+    publicPost = props.publicPost;
+  }
+
+  const actionsMap = {
+    update: updatePostAction,
+    create: createPostAction,
+  };
+
   const initialState = {
     formState: makePartialPublicPost(publicPost),
     errors: [],
   };
   const [state, action, isPending] = useActionState(
-    createPostAction,
+    actionsMap[mode],
     initialState,
   );
+
   const { formState } = state;
   const [content, setContent] = useState(publicPost?.content || '');
 
@@ -33,15 +56,26 @@ export function ManagePostForm({ publicPost }: ManagePostFormProps) {
     }
   }, [state.errors]);
 
+
+   useEffect(() => {
+     if (state.success) {
+       toast.dismiss();
+       toast.success('Updated post with success.');
+     }
+   }, [state.success]);
+
   return (
     <form action={action} className='mb-16'>
       <div className='flex flex-col gap-6'>
+        <InputText name='id' type='text' defaultValue={formState.id} hidden />
+
         <InputText
           labelText='Author'
           placeholder='Post author'
           name='author'
           type='text'
           defaultValue={formState.author}
+          disabled={isPending}
         />
 
         <InputText
@@ -50,6 +84,7 @@ export function ManagePostForm({ publicPost }: ManagePostFormProps) {
           name='title'
           type='text'
           defaultValue={formState.title}
+          disabled={isPending}
         />
 
         <InputText
@@ -58,6 +93,7 @@ export function ManagePostForm({ publicPost }: ManagePostFormProps) {
           name='excerpt'
           type='text'
           defaultValue={formState.excerpt}
+          disabled={isPending}
         />
 
         <MarkdownEditor
@@ -65,10 +101,10 @@ export function ManagePostForm({ publicPost }: ManagePostFormProps) {
           value={content}
           setValue={setContent}
           textAreaName='content'
-          disabled={false}
+          disabled={isPending}
         />
 
-        <ImageUploader />
+        <ImageUploader disabled={isPending} />
 
         <InputText
           labelText='URL Cover Image'
@@ -76,6 +112,7 @@ export function ManagePostForm({ publicPost }: ManagePostFormProps) {
           name='coverImageUrl'
           type='text'
           defaultValue={formState.coverImageUrl}
+          disabled={isPending}
         />
 
         <InputCheckbox
@@ -83,10 +120,16 @@ export function ManagePostForm({ publicPost }: ManagePostFormProps) {
           name='published'
           labelText='Publish post'
           defaultChecked={formState.published}
+          disabled={isPending}
         />
 
         <div className='mt-4'>
-          <Button type='submit' size='lg' variant='default'>
+          <Button
+            type='submit'
+            size='lg'
+            variant='default'
+            disabled={isPending}
+          >
             Create
           </Button>
         </div>
