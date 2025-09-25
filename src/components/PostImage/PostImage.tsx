@@ -8,6 +8,7 @@ type PostImageProps = {
 };
 
 export function PostImage({ linkProps, imageProps }: PostImageProps) {
+  console.log(imageProps.src);
   return (
     <Link
       {...linkProps}

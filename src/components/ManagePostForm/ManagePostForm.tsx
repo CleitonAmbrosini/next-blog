@@ -37,6 +37,14 @@ export function ManagePostForm({ publicPost }: ManagePostFormProps) {
     <form action={action} className='mb-16'>
       <div className='flex flex-col gap-6'>
         <InputText
+          labelText='Author'
+          placeholder='Post author'
+          name='author'
+          type='text'
+          defaultValue={formState.author}
+        />
+
+        <InputText
           labelText='Title'
           placeholder='Post title'
           name='title'
