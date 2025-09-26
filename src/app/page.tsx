@@ -3,12 +3,15 @@ import { PostList } from '@/components/PostList';
 import { SpinLoader } from '@/components/SpinLoader';
 import Link from 'next/link';
 import { Suspense } from 'react';
+import { InstallPrompt, PushNotificationManager } from './pwa-notifications';
 
 export const dynamic = 'force-static';
 
-export default async function HomePage() {
+export default function HomePage() {
   return (
     <>
+      <PushNotificationManager />
+      <InstallPrompt />
       <Link
         href={'/admin/post'}
         className='mb-6 rounded-xl bg-sky-950 text-slate-300 p-2 flex justify-center'
