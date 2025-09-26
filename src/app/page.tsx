@@ -1,16 +1,15 @@
+import InstallPrompt from '@/components/InstallPrompt/InstallPrompt';
 import { PostFeatured } from '@/components/PostFeatured';
 import { PostList } from '@/components/PostList';
 import { SpinLoader } from '@/components/SpinLoader';
 import Link from 'next/link';
 import { Suspense } from 'react';
-import { InstallPrompt, PushNotificationManager } from './pwa-notifications';
 
 export const dynamic = 'force-static';
 
 export default function HomePage() {
   return (
     <>
-      <PushNotificationManager />
       <InstallPrompt />
       <Link
         href={'/admin/post'}
