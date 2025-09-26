@@ -40,7 +40,7 @@ export async function updatePostAction(
   const zodParseObj = PostUpdateSchema.safeParse(formDataToObj);
 
   if (!zodParseObj.success) {
-    const errors = getZodErrorMessages(zodParseObj.error.format());
+    const errors = getZodErrorMessages(zodParseObj.error);
     return {
       errors,
       formState: makePartialPublicPost(formDataToObj),
