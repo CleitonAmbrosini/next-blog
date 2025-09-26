@@ -10,6 +10,7 @@ import { ImageUploader } from '../ImageUploader';
 import { InputCheckbox } from '../InputCheckbox';
 import { InputText } from '../InputText';
 import { MarkdownEditor } from '../MarkdownEditor';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 type ManagePostFormUpdateProps = {
   mode: 'update';
@@ -26,6 +27,9 @@ type ManagePostFormProps =
 
 export function ManagePostForm(props: ManagePostFormProps) {
   const { mode } = props;
+  const searchParams = useSearchParams();
+  const created = searchParams.get('created');
+  const router = useRouter();
 
   let publicPost;
   if (mode === 'update') {
@@ -62,7 +66,17 @@ export function ManagePostForm(props: ManagePostFormProps) {
        toast.dismiss();
        toast.success('Updated post with success.');
      }
-   }, [state.success]);
+   }, [state]);
+
+   useEffect(() => {
+     if (created === '1') {
+       toast.dismiss();
+       toast.success('Create post with success.');
+       const url = new URL(window.location.href);
+       url.searchParams.delete('created');
+       router.replace(url.toString());
+     }
+   }, [created, router]);
 
   return (
     <form action={action} className='mb-16'>
