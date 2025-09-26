@@ -1,11 +1,11 @@
 import { Container } from '@/components/Container';
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
+import ServiceWorkerRegister from '@/components/ServiceWorkerRegister/ServiceWorkerRegister';
+import { ToastifyContainer } from '@/components/ToastifyContainer';
 import { ThemeProvider } from '@/store/ThemeContext/ThemeContext';
 import type { Metadata } from 'next';
 import './globals.css';
-import { ToastifyContainer } from '@/components/ToastifyContainer';
-import ServiceWorkerRegister from '@/components/ServiceWorkerRegister/ServiceWorkerRegister';
 
 export const metadata: Metadata = {
   manifest: '/manifest.webmanifest',
