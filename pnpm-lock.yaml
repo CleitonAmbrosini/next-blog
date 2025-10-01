@@ -32,6 +32,9 @@ importers:
       drizzle-orm:
         specifier: ^0.44.4
         version: 0.44.4(@neondatabase/serverless@1.0.1)(@types/better-sqlite3@7.6.13)(@types/pg@8.15.5)(pg@8.16.3)(sqlite3@5.1.7)
+      jose:
+        specifier: ^6.1.0
+        version: 6.1.0
       lucide-react:
         specifier: ^0.511.0
         version: 0.511.0(react@19.1.0)
@@ -3543,6 +3546,9 @@ packages:
   jiti@2.4.2:
     resolution: {integrity: sha512-rg9zJN+G4n2nfJl5MW3BMygZX56zKPNVEYYqq7adpmMh4Jn2QNEwhvQlFy6jPVdcod7txZtKHWnyZiA3a0zP7A==}
     hasBin: true
+
+  jose@6.1.0:
+    resolution: {integrity: sha512-TTQJyoEoKcC1lscpVDCSsVgYzUDg/0Bt3WE//WiTPK6uOCQC2KZS4MpugbMWt/zyjkopgZoXhZuCi00gLudfUA==}
 
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
@@ -9216,6 +9222,8 @@ snapshots:
   jiti@1.21.7: {}
 
   jiti@2.4.2: {}
+
+  jose@6.1.0: {}
 
   js-tokens@4.0.0: {}
 
