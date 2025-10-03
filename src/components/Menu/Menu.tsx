@@ -1,14 +1,24 @@
 'use client';
 
+import { logoutAction } from '@/actions/login/logout-action';
 import clsx from 'clsx';
-import { CircleXIcon, FileTextIcon, HouseIcon, MenuIcon, PlusIcon } from 'lucide-react';
+import {
+  CircleXIcon,
+  FileTextIcon,
+  HourglassIcon,
+  HouseIcon,
+  LogOutIcon,
+  MenuIcon,
+  PlusIcon,
+} from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useTransition } from 'react';
 
 export function Menu() {
   const [isOpen, setIsOpen] = useState(false);
   const pathName = usePathname();
+  const [isPeding, startTransition] = useTransition();
 
   useEffect(() => {
     setIsOpen(false);
@@ -34,6 +44,11 @@ export function Menu() {
     'text-blue-200 italic',
     'sm:hidden',
   );
+
+  function handleLogout(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
+    e.preventDefault();
+    startTransition(async () => await logoutAction());
+  }
 
   return (
     <nav className={navClass}>
@@ -69,6 +84,21 @@ export function Menu() {
         <PlusIcon />
         New post
       </Link>
+
+      <a href='#' className={linkClass} onClick={handleLogout}>
+        {isPeding && (
+          <>
+            <HourglassIcon />
+            Wait...
+          </>
+        )}
+        {!isPeding && (
+          <>
+            <LogOutIcon />
+            Log Out
+          </>
+        )}
+      </a>
     </nav>
   );
 }

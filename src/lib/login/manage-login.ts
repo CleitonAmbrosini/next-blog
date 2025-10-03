@@ -50,7 +50,7 @@ export async function deleteLoginSession() {
 export async function signJwt(jwtPayload: jwtPayload) {
   return new SignJWT(jwtPayload)
     .setProtectedHeader({
-      alg: 'hs256',
+      alg: 'HS256',
       type: 'JWT',
     })
     .setIssuedAt()
