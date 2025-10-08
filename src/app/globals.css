@@ -4,18 +4,29 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-surface: #0e1225;
+  /* superfícies */
+  --color-primary: #0b0f1a;
+  --color-surface: #0f1524;
+  --color-elevated: #151c2f;
+  --color-hover: #1b2440;
+  --color-border: #2a3553;
 
-  --color-button: #2e4264; /* não há "card" distinto no hero; use o mesmo ou ajuste */
-  --color-button-outer: #1e293c;
+  /* texto */
+  --color-text-primary: #e6ecf3;
+  --color-text-secondary: #a6b1c2;
+  --color-text-muted: #7c889d;
 
-  --color-textc-primary: #f6f9fc;
-  --color-textc-secondary: #8a879d;
+  /* acessórios */
+  --color-link: #7aa2ff;
+  --color-accent: #3dd6d0;
+  --color-accent-alt: #f471b5;
 
-  --color-borderc-subtle: #293651;
+  /* estados */
+  --color-success: #34d399;
+  --color-warning: #fbbf24;
+  --color-danger: #f87171;
 
-  --color-accent-pink: #ec436d; /* título Bermuda */
-  --color-accent-pink-light: #eb4970; /* badge "New" */
-  --color-accent-green: #41d67b; /* Spotify */
-  --color-accent-purple: #e63fe6; /* Apple Podcasts */
+  /* gradients/ilustra */
+  --color-gradient-start: #101a2e;
+  --color-gradient-end: #0c1225;
 }
