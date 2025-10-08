@@ -6,16 +6,8 @@ type ContainerProps = {
 
 export function Container({ children }: ContainerProps) {
   return (
-    <div
-      className={clsx(
-        'text-slate-900',
-        'bg-slate-100',
-        'min-h-screen',
-        'dark:bg-slate-900',
-        'dark:text-slate-100',
-      )}
-    >
-      <div className='max-w-screen-lg mx-auto px-8'>{children}</div>
+    <div className={clsx('text-textc-primary', 'bg-surface', 'min-h-screen')}>
+      <div className='w-[1300px] mx-auto px-8'>{children}</div>
     </div>
   );
 }

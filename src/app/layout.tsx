@@ -25,12 +25,10 @@ export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
     <html lang='en' className='dark'>
       <body>
         <ThemeProvider>
-          <Container>
-            <ServiceWorkerRegister />
-            <Header />
-            {children}
-            <Footer />
-          </Container>
+          <ServiceWorkerRegister />
+          <Header />
+          <Container>{children}</Container>
+          <Footer />
           <ToastifyContainer />
         </ThemeProvider>
       </body>

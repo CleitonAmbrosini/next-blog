@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-type ButtonsVariants = 'default' | 'ghost' | 'danger';
+type ButtonsVariants = 'default' | 'ghost' | 'danger' | 'outline';
 type ButtonsSizes = 'sm' | 'md' | 'lg';
 
 type ButtonProps = {
@@ -10,9 +10,12 @@ type ButtonProps = {
 
 export function Button({ variant, size, children, ...props }: ButtonProps) {
   const buttonVariants: Record<ButtonsVariants, string> = {
-    default: clsx('bg-blue-600 text-blue-100 hover:bg-blue-800'),
+    default: clsx('bg-button text-blue-100 hover:bg-button-outer'),
     ghost: clsx('bg-slate-300 text-slate-900 hover:bg-slate-400'),
     danger: clsx('bg-red-600 text-red-100 hover:bg-red-700'),
+    outline: clsx(
+      'bg-surface border-1 text-textc-primary hover:bg-button-outer',
+    ),
   };
 
   const buttonSizes: Record<ButtonsSizes, string> = {
